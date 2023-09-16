@@ -16,6 +16,7 @@ interface IProgress {
 
 export const copy = async (options: IOptions): Promise<void> => {
   await new Promise<void>((resolve) => {
+    const start = Date.now()
     const rsync = getPath()
 
     const proc = spawn(
@@ -32,17 +33,20 @@ export const copy = async (options: IOptions): Promise<void> => {
     })
 
     proc.stdout.on('data', (data) => {
-      const match = data.toString().match(/(?<bytes>[\d,]+)\s+(?<percent>\d+)%\s+(?<speed_string>(?<speed_bytes>[\d\\.]+)\w{2,3}\/s)\s+(?<eta>[\d:]+)/)
+      const match = data.toString().match(/(?<bytes>[\d,]+)\s+(?<percent>\d+)%\s+(?<speedString>(?<speedBytes>[\d\\.]+)\w{2,3}\/s)\s+(?<eta>[\d:]+)/)
 
       if (match !== null) {
-        const { bytes, percent, speed_string, speed_bytes, eta } = match.groups
+        const { bytes, percent, speedBytes, eta } = match.groups
+
+        const [hours, minutes, seconds] = eta.split(':')
+        const etaSeconds = Number(seconds) + Number((minutes * 60)) + Number((hours * 60 * 60))
 
         const progress: IProgress = {
           percentage: Number(percent),
           transferred: Number(bytes.replaceAll(',', '')),
-          eta: 0,
-          runtime: 0,
-          speed: Number(speed_bytes)
+          eta: Number(percent) === 100 ? 0 : etaSeconds,
+          runtime: (Date.now() - start) / 1000,
+          speed: Number(speedBytes)
         }
 
         console.log(progress)
