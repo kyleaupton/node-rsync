@@ -1,6 +1,7 @@
 import { spawn } from 'child_process'
 import { getPath } from './bin'
 import { type IOptions, type IProgress, type IRsyncAPI, RsyncAPIMap } from './copyOptions'
+
 interface IReturn {
   command: string
   ellapsedTime: number

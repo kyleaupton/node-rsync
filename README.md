@@ -11,6 +11,8 @@ Rsync API for server-side javascript runtimes
 # Example
 
 ```javascript
+import { setPath, copy } from '@kyleupton/node-rsync'
+
 setPath('/opt/homebrew/Cellar/rsync/3.2.7_1/bin/rsync')
 
 const res = await copy({
