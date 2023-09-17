@@ -30,12 +30,11 @@ export const copy = async (param: IOptions): Promise<IReturn> => {
 
         if (typeof value === 'boolean' && value) {
           option = `${rsyncAPIKey}`
-        } else if (typeof value === 'string') {
-          option = `${rsyncAPIKey}="${value}"`
-        } else if (typeof value === 'number') {
-          option += `${rsyncAPIKey}=${value}`
+        } else if (typeof value === 'string' || typeof value === 'number') {
+          option = `${rsyncAPIKey}=${value}`
         } else if (typeof value === 'object') {
           // TODO: figure this one out. Maybe some recursion?
+          // Only effects the `backup` option currently
         }
 
         if (option) options.push(option)
