@@ -8,6 +8,12 @@ Rsync API for server-side javascript runtimes
 * CJS + ESM exports
 * 0 dependencies
 
+# Install
+
+```bash
+yarn add @kyleupton/node-rsync
+```
+
 # Example
 
 ```javascript
