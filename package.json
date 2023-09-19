@@ -1,6 +1,6 @@
 {
   "name": "@kyleupton/node-rsync",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Rsync API for server-side javascript runtimes",
   "repository": {
     "type": "git",
