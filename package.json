@@ -1,7 +1,11 @@
 {
   "name": "@kyleupton/node-rsync",
   "version": "0.0.4",
-  "description": "Rsync API for server-side javascript runtimes",
+  "description": "Rsync wrapper API for server-side javascript runtimes",
+  "keywords": [
+    "rsync",
+    "wrapper"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/kyleaupton/node-rsync.git"
