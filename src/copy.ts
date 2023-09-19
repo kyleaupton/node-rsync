@@ -1,6 +1,6 @@
 import { spawn } from 'child_process'
-import { getPath } from './bin'
-import { type IOptions, type IProgress, type IRsyncAPI, RsyncAPIMap } from './copyOptions'
+import { getPath } from './bin.js'
+import { type IOptions, type IProgress, type IRsyncAPI, RsyncAPIMap } from './copyOptions.js'
 
 interface IReturn {
   command: string
