@@ -1,5 +1,5 @@
 # node-rsync
-Rsync API for server-side javascript runtimes
+Rsync wrapper API for server-side javascript runtimes
 
 # Features
 * Progress reporting
