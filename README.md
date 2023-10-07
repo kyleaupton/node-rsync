@@ -1,6 +1,8 @@
 # node-rsync
 Rsync wrapper API for server-side javascript runtimes
 
+> **_NOTE:_**  Requires rsync version `3.1.0` or greater
+
 # Features
 * Progress reporting
 * Typed rsync options

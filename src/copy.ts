@@ -1,6 +1,7 @@
 import { spawn } from 'child_process'
 import { getPath } from './bin.js'
 import { type IOptions, type IProgress, type IRsyncAPI, RsyncAPIMap } from './copyOptions.js'
+import { humanReadableToBytes } from './utils/bytes.js'
 
 interface IReturn {
   command: string
@@ -63,7 +64,7 @@ export const copy = async (param: IOptions): Promise<IReturn> => {
         const match = data.toString().match(/(?<bytes>[\d,]+)\s+(?<percent>\d+)%\s+(?<speedString>(?<speedBytes>[\d\\.]+)\w{2,3}\/s)\s+(?<eta>[\d:]+)(?<isBadLine>\s+\(xfr.+\))?/)
 
         if (match !== null) {
-          const { bytes, percent, speedBytes, eta, isBadLine } = match.groups
+          const { bytes, percent, speedBytes, speedString, eta, isBadLine } = match.groups
 
           if (!isBadLine) {
             const [hours, minutes, seconds] = eta.split(':')
@@ -74,7 +75,7 @@ export const copy = async (param: IOptions): Promise<IReturn> => {
               transferred: Number(bytes.replaceAll(',', '')),
               eta: etaSeconds,
               runtime: (Date.now() - start) / 1000,
-              speed: Number(speedBytes)
+              speed: humanReadableToBytes(speedString).bits
             }
 
             if (param.onProgress) param.onProgress(progress)
