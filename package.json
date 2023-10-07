@@ -1,6 +1,6 @@
 {
   "name": "@kyleupton/node-rsync",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Rsync wrapper API for server-side javascript runtimes",
   "keywords": [
     "rsync",
