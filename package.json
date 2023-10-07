@@ -1,6 +1,6 @@
 {
   "name": "@kyleupton/node-rsync",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Rsync wrapper API for server-side javascript runtimes",
   "keywords": [
     "rsync",
@@ -10,13 +10,12 @@
     "type": "git",
     "url": "https://github.com/kyleaupton/node-rsync.git"
   },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
-  },
   "type": "module",
   "main": "dist/cjs/index.js",
   "types": "dist/cjs/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
   "exports": {
     "require": "./dist/cjs/index.js",
     "import": "./dist/esm/index.js"
