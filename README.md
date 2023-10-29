@@ -1,4 +1,7 @@
+[![Node version](https://img.shields.io/npm/v/@kyleupton/node-rsync.svg?style=flat)](https://www.npmjs.com/package/@kyleupton/node-rsync)
+
 # node-rsync
+
 Rsync wrapper API for server-side javascript runtimes
 
 > **_NOTE:_**  Requires rsync version `3.1.0` or greater
